@@ -1654,7 +1654,8 @@ Vorteile sind:</li>
 </section>
 <section id="unified-modeling-language-uml" class="slide level3">
 <h3>Unified Modeling Language (UML)</h3>
-UML ist eine grafische Modellierungssprache zur…
+UML ist eine grafische Modellierungssprache zur…<br />
+
 <ul style="text-align:left; align-items:left">
 <li>
 Spezifikation
@@ -1669,12 +1670,13 @@ Dokumentation und
 Visualisierung
 </li>
 </ul>
-<p><span style="text-align:left">von Software.</span></p>
+<p>von Software.</p>
 </section>
 <section id="uml-einheiten" class="slide level3">
 <h3>UML Einheiten</h3>
-UML besteht u.a. aus den Spracheinheiten…
-<ul style="align-items:left">
+UML besteht u.a. aus den Spracheinheiten…<br />
+
+<ul>
 <li>
 Aktionen
 </li>
@@ -1721,8 +1723,9 @@ Zustandsautomaten
 <h3>Attribute in UML (Vereinfacht)</h3>
 Notation:<br />
 [Sichtbarkeit] name [:Typ]<br />
-Sichtbarkeiten können u.a. sein:
-<ul style="text-align:left">
+Sichtbarkeiten können u.a. sein:<br />
+
+<ul>
 <li>
 public (+): auch andere Klassen können darauf zugreifen
 </li>
@@ -1737,6 +1740,132 @@ private (-): nur die Klasse selbst kann darauf zugreifen
 [Sichtbarkeit] name [({Parameter})] [:Rückgabetyp]<br />
 Notation von Parametern:<br />
 name : Typ</p>
+</section>
+<section id="konstruktoren" class="slide level3">
+<h3>Konstruktoren</h3>
+<p>Um ein Objekt einer Klasse zu erstellen, muss der Konstruktor mit dem Schlüsselwort new aufgerufen werden:</p>
+<pre><code>Schueler peter = new Schueler();</code></pre>
+<p>Ein Konstruktor ähnelt einer Methode und wird in der UML bei den Methoden gelistet, wird aber in Java groß geschrieben und hat keinen Rückgabetyp (auch nicht void):</p>
+<pre><code>public class Schueler{
+  public Schueler(){
+  }
+}</code></pre>
+</section>
+<section id="konstruktoren-1" class="slide level3">
+<h3>Konstruktoren</h3>
+<p>Ein Konstruktor kann verwendet werden, um Attribute eines Objektes bei seiner Erstellung festzulegen:</p>
+<pre><code>public class Schueler{
+  private String name;
+  private double groesse;
+  private double gewicht;
+  public Schueler(String name, double groesse, double gewicht){
+    this.name = name;
+    this.groesse = groesse;
+    this.gewicht = gewicht;
+  }
+}</code></pre>
+<p>Mit “this” wird auf die Variablen des aktuellen Objektes zugegriffen.</p>
+</section>
+<section id="unterschied-public-und-private" class="slide level3">
+<h3>Unterschied public und private</h3>
+<p>Öffentliche Attribute können zu Fehlern im System führen:</p>
+<pre><code>public class Schueler{
+  public double groesse;
+  public double gewicht;
+  public double bmi;
+  public double bmiBerechnen(){
+    return this.gewicht/(this.groesse*this.groesse);
+  }
+}
+public class Anwendung{
+  public static void main(args...){
+    Schueler peter = new Schueler();
+    peter.groesse = 1.80;
+    peter.gewicht = 70;
+    peter.bmi = peter.bmiBerechnen();
+    peter.gewicht = 75;
+    System.out.println(peter.bmi); //falscher Wert, denn nicht mehr aktuell!
+    System.out.println(peter.bmiBerechnen()); //richtiger Wert
+  }
+}</code></pre>
+</section>
+<section id="get--und-set-methoden" class="slide level3">
+<h3>get- und set-Methoden</h3>
+<p>Um die Problematik von öffentlichen Attributen zu umgehen, können get- und set-Methoden verwendet werden:</p>
+<pre><code>public class Schueler{
+  private double groesse;
+  private double gewicht;
+  private double bmi;
+  public Schueler(double groesse, double gewicht){
+    this.groesse = groesse;
+    this.gewicht = gewicht;
+    this.bmi = bmiBerechnen();
+  }
+  public double bmiBerechnen(){
+    return this.gewicht/(this.groesse*this.groesse);
+  }
+  public double getGroesse(){
+    return this.groesse;
+  }
+  public void setGroesse(double groesse){
+    this.groesse = groesse;
+    this.bmi = bmiBerechnen();
+  }
+  public double getGewicht(){
+    return this.gewicht;
+  }
+  public void setGewicht(){
+    this.gewicht = gewicht;
+    this.bmi = bmiBerechnen;
+  }
+  public double getBmi(){
+    return this.bmi;
+  }
+}</code></pre>
+</section>
+<section id="beispiel-klasse-buch" class="slide level3">
+<h3>Beispiel: Klasse Buch</h3>
+<p>Modelliere die Klasse “Buch” in einem vollständigen UML-Klassendiagramm. Mit den folgenden Attributen, ihren get- und set-Methoden sowie einem Konstruktor:</p>
+<ul>
+<li>Einen Author</li>
+<li>Einen Titel</li>
+<li>Eine ISBN</li>
+<li>Ein Erscheinungsjahr</li>
+</ul>
+</section>
+<section id="methoden-und-konstruktoren-überladen" class="slide level3">
+<h3>Methoden und Konstruktoren überladen</h3>
+<p>Methoden und Konstruktoren können überladen werden. D.h. es können mehrere Methoden und Konstruktoren mit dem gleichen Namen, aber unterschiedlichen Parametern existieren:</p>
+<pre><code>public class Schueler{
+  private double gewicht;
+  private double groesse;
+  private double bmi;
+  public Schueler(){}
+  public Schueler(double gewicht, double groesse){
+    this.gewicht = gewicht;
+    this.groesse = groesse;
+    this.bmi = bmiBerechnen();
+  }
+  public double bmiBerechnen(){
+    return this.gewicht/(this.groesse*this.groesse);
+  }
+}</code></pre>
+</section>
+<section id="aufgabe-klasse-auto" class="slide level3">
+<h3>Aufgabe: Klasse Auto</h3>
+<ol type="1">
+<li>Modelliere die Klasse “Auto” in einem vollständigen UML-Klassendiagramm. Mit den folgenden Attributen, ihren get- und set-Methoden, vier Konstruktoren und den Methoden tanken(double Menge) und fahren(double Strecke):</li>
+</ol>
+<ul>
+<li>Kennzeichen</li>
+<li>Kilometerstand</li>
+<li>Tankvolumen</li>
+<li>Verbrauch</li>
+<li>Tankinhalt</li>
+</ul>
+<ol start="2" type="1">
+<li>Implementiere die Klasse Auto abgesehen von der Methode fahren.</li>
+</ol>
 </section>
     </div>
   </div>
