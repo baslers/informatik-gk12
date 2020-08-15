@@ -199,7 +199,7 @@ Methoden und Konstruktoren können überladen werden. D.h. es können mehrere Me
     }
     
 ### Aufgabe: Klasse Auto
-1. Modelliere die Klasse "Auto" in einem vollständigen UML-Klassendiagramm. Mit den folgenden Attributen, ihren get- und set-Methoden, vier Konstruktoren und den Methoden tanken(double Menge) und fahren(double Strecke):  
+1. Modelliere die Klasse "Auto" in einem vollständigen UML-Klassendiagramm. Mit den folgenden Attributen, ihren get- und set-Methoden, vier Konstruktoren und den Methoden tanken(double menge) und fahren(double strecke):  
 
 - Kennzeichen
 - Kilometerstand
@@ -208,3 +208,153 @@ Methoden und Konstruktoren können überladen werden. D.h. es können mehrere Me
 - Tankinhalt
 
 2. Implementiere die Klasse Auto abgesehen von der Methode fahren.
+
+### Aufgabe: Fahren Methode
+Analysiere und beschreibe die Methode fahren:
+
+    public void fahren(double strecke) {
+        double verbrauchFuerStrecke = (strecke * this.verbrauch) / 100;
+        if (verbrauchFuerStrecke > this.tankinhalt) {
+        strecke = this.tankinhalt / this.verbrauch * 100;
+        this.kilometerstand = this.kilometerstand + strecke;
+        Tankinhalt = 0;
+      } else {
+        this.kilometerstand = this.kilometerstand + strecke;
+        this.tankinhalt = this.tankinhalt - verbrauchFuerStrecke;
+      }
+    } 
+    
+### Aufgabe: Fahrschule
+<font size="5">
+
+- Implementiere die beiden auf der nächsten Folie folgenden Klassen Fahrschueler und Auto.
+- Bei Erstellung eines neuen Fahrschülers über den Konstruktor hat dieser noch keine Theorie- und Praxisstunden abgelegt und somit auch noch keine der beiden Prüfungen bestanden. Außerdem sitzt er in keinem Auto.
+- Die Methoden machePraxisstunde und macheTheoriestunde erhöhen das jeweilige Attribut jeweils um 1.
+- Die Methoden theorieBestanden und praxisBestanden setzen das jeweilige Attribut jeweils auf true, wenn in dem jeweiligen Bereich mindestens 14 Stunden erreicht wurden.
+- Die Methode hatFuehrerschein gibt genau dann true zurück, wenn Theorie und Praxis bestanden wurden.
+- Die Methode einsteigen ändert das Attribut auto zum übergebenen Auto.
+- Die Methode losfahren gibt true zurück, wenn das Auto, in dem der Fahrschüler sitzt, ein Fahrschulauto ist oder er bereits seinen Führerschein hat.
+- Die Methode aussteigen setzt das Attribut auf "null", d.h. der Wert ist leer.
+
+</font>
+
+### Aufgabe: Fahrschule
+<img src=".\Abbildungen\Klassen.png" style="max-width:45%">
+
+### Vererbung
+- In Java können Klassen Attribute und Methoden vererben
+- Die vererbende Klasse wird Superklasse genannt
+- Die erbende Klasse wird Subklasse genannt
+- Vererbung dient der Wiederverwendbarkeit
+
+### Vererbung in UML
+- In UML wird die Vererbung durch einen Pfeil von der Subklasse zur Superklasse dargestellt
+- Geerbte Attribute und Methoden müssen nicht nochmal enthalten sein
+
+### Vererbung in Java
+In Java wird die Vererbung durch das Schlüsselwort extends verursacht:
+
+    public class Superklasse {
+      ...
+    }
+    public class Subklasse extends Superklasse{
+      ...
+    }
+    
+### Sichtbarkeit protected
+- Ist die Sichtbarkeit eines Attributes private, kann sie auch keine Subklasse erreichen
+- Soll ein Attribut der Superklasse im Allgemeinen privat sein, aber für eine Subklasse erreichbar, muss das Schlüsselwort protected statt private verwendet werden
+
+### Beispiel Vererbung
+
+    public class Fahrzeug{
+      private String marke;
+      public void hupen(){
+        System.out.println("Tuut tuut!");
+      }
+      public String getMarke(){
+        return this.marke;
+      }
+      public void setMarke(String marke){
+        this.marke = marke;
+      }
+    }
+    
+    public class Auto extends Fahrzeug{
+      private String modell;
+      public String getModell(){
+        return this.Modell;
+      }
+      public void setModell(String modell){
+        this.modell = modell;
+      }
+    }
+    
+    public class MainClass{
+      public static void main(String... args){
+        Auto meinAuto = new Auto();
+        meinAuto.setMarke("Ford");
+        meinAuto.setModell("Mustang");
+        meinAuto.hupen();
+        System.out.println("Mein Auto ist ein "+meinAuto.getMarke()+" "+meinAuto.getModell()+".");
+        meinAuto.hupen();
+      }
+    }
+
+### Beispiel Schlüsselwort protected
+
+    public class Fahrzeug{
+      protected String marke;  //hier protected, damit marke von Subklassen verändert werden kann
+      public void hupen(){
+        System.out.println("Tuut tuut!");
+      }
+    }
+    
+    public class Auto extends Fahrzeug{
+      private String modell;
+      public String getModell(){
+        return this.Modell;
+      }
+      public void setModell(String modell){
+        this.modell = modell;
+      }
+      public String getMarke(){  //hier nur möglich, weil marke in der Superklasse protected statt private ist
+        return this.marke;
+      }
+      public void setMarke(String marke){  //hier nur möglich, weil marke in der Superklasse protected statt private ist
+        this.marke = marke;
+      }
+    }
+    
+### Polymorphie
+<font size="6">Polymorphie bedeutet, dass die gleiche Methode durch Vererbung und Überschreibung der Methoden unterschiedliche Auswirkungen hat:</font>  
+
+    public class Tier{
+      public void tierLaut(){
+        System.out.println("Das Tier macht einen Laut.");
+      }
+    }
+    public class Hund{
+      public void tierLaut(){
+        System.out.println("Wuff wuff!");
+      }
+    }
+    public class Katze{
+      public void tierLaut(){
+        System.out.println("Miau miau!");
+      }
+    }
+
+### Aufgabe Vererbung in UML und Java
+<font size="6">
+
+- Modelliere die Klassen Schueler, Grundschueler, Unterstufenschueler, Mittelstufenschueler und Oberstufenschueler in UML.
+- Implementiere die Klassen in Java.
+- Schueler ist die Superklasse der anderen Klassen.
+- Jeder Schueler hat einen Namen und eine Methode print, die alle Daten des Schülers in der Konsole ausgibt.
+- Grundschueler haben eine AG (String).
+- Unterstufenschueler haben eine zweite Fremdsprache (String).
+- Mittelstufenschueler haben eine zweite Fremdsprache (String) und zwei Wahlpflichtfächer (jeweils ein String).
+- Oberstufenschueler haben zwei Leistungskurse (jeweils ein String) und mehrere Grundkurse (String[]).
+
+</font>
