@@ -233,8 +233,8 @@ Analysiere und beschreibe die Methode fahren:
 - Die Methoden theorieBestanden und praxisBestanden setzen das jeweilige Attribut jeweils auf true, wenn in dem jeweiligen Bereich mindestens 14 Stunden erreicht wurden.
 - Die Methode hatFuehrerschein gibt genau dann true zurück, wenn Theorie und Praxis bestanden wurden.
 - Die Methode einsteigen ändert das Attribut auto zum übergebenen Auto.
-- Die Methode losfahren gibt true zurück, wenn das Auto, in dem der Fahrschüler sitzt, ein Fahrschulauto ist oder er bereits seinen Führerschein hat.
-- Die Methode aussteigen setzt das Attribut auf "null", d.h. der Wert ist leer.
+- Die Methode losfahren gibt true zurück, wenn das Attribut auto ein Fahrschulauto ist oder er bereits seinen Führerschein hat.
+- Die Methode aussteigen setzt das Attribut auto auf "null", d.h. der Wert ist leer.
 
 </font>
 
