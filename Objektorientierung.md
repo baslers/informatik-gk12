@@ -247,6 +247,12 @@ Analysiere und beschreibe die Methode fahren:
 - Die erbende Klasse wird Subklasse genannt
 - Vererbung dient der Wiederverwendbarkeit
 
+### Generalisierung und Spezialisierung
+Bei der Vererbung spricht man auch von Generalisierung und Spezialisierung.  
+Beispiel: Tier ist eine Superklasse von der Subklasse Hund.  
+Vom Tier zum Hund spricht man von Spezialisierung.  
+Vom Hund zum Tier spricht man von Generalisierung.
+
 ### Vererbung in UML
 - In UML wird die Vererbung durch einen Pfeil von der Subklasse zur Superklasse dargestellt
 - Geerbte Attribute und Methoden müssen nicht nochmal enthalten sein
@@ -334,12 +340,12 @@ In Java wird die Vererbung durch das Schlüsselwort extends verursacht:
         System.out.println("Das Tier macht einen Laut.");
       }
     }
-    public class Hund{
+    public class Hund extends Tier{
       public void tierLaut(){
         System.out.println("Wuff wuff!");
       }
     }
-    public class Katze{
+    public class Katze extends Tier{
       public void tierLaut(){
         System.out.println("Miau miau!");
       }

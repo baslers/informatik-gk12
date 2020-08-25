@@ -1910,6 +1910,13 @@ public class Anwendung{
 <li>Vererbung dient der Wiederverwendbarkeit</li>
 </ul>
 </section>
+<section id="generalisierung-und-spezialisierung" class="slide level3">
+<h3>Generalisierung und Spezialisierung</h3>
+<p>Bei der Vererbung spricht man auch von Generalisierung und Spezialisierung.<br />
+Beispiel: Tier ist eine Superklasse von der Subklasse Hund.<br />
+Vom Tier zum Hund spricht man von Spezialisierung.<br />
+Vom Hund zum Tier spricht man von Generalisierung.</p>
+</section>
 <section id="vererbung-in-uml" class="slide level3">
 <h3>Vererbung in UML</h3>
 <ul>
@@ -2003,12 +2010,12 @@ public class Auto extends Fahrzeug{
     System.out.println(&quot;Das Tier macht einen Laut.&quot;);
   }
 }
-public class Hund{
+public class Hund extends Tier{
   public void tierLaut(){
     System.out.println(&quot;Wuff wuff!&quot;);
   }
 }
-public class Katze{
+public class Katze extends Tier{
   public void tierLaut(){
     System.out.println(&quot;Miau miau!&quot;);
   }
