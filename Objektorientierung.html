@@ -2036,6 +2036,24 @@ public class Katze extends Tier{
 </ul>
 <p></font></p>
 </section>
+<section id="abstrakte-klassen-und-interfaces" class="slide level3">
+<h3>Abstrakte Klassen und Interfaces</h3>
+<p>Sollen Superklassen nur gemeinsame Eigenschaften von mehreren Subklassen bündeln, können abstrakte Klassen und Interfaces verwendet werden.<br />
+Abstrakte Methoden in abstrakten Klassen werden nur deklariert, aber nicht implementiert.<br />
+Abstrakte Klassen können aber auch implementierte Klassen enthalten.<br />
+Interfaces enthalten nur abstrakte Methoden. Abstrakte Klassen und Interfaces können nicht instanziiert werden, sondern nur von Subklassen erweitert und implementiert werden. Subklassen können mehrere Interfaces implementieren.</p>
+</section>
+<section id="abstrakte-klassen" class="slide level3">
+<h3>Abstrakte Klassen</h3>
+<p>In UML werden abstrakte Klassen und Methoden kursiv geschrieben.<br />
+In Java wird das Schlüsselwort abstract verwendet:</p>
+<pre><code>public abstract class AbstrakteSuperklasse{
+  public abstract String abstrakteMethode(){
+    return &quot;Hallo&quot;;
+  }
+}</code></pre>
+<p>Sie werden wie gewohnt durch das Schlüsselwort extends von einer Subklasse erweitert.</p>
+</section>
     </div>
   </div>
 

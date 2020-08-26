@@ -364,3 +364,23 @@ In Java wird die Vererbung durch das Schlüsselwort extends verursacht:
 - Oberstufenschueler haben zwei Leistungskurse (jeweils ein String) und mehrere Grundkurse (String[]).
 
 </font>
+
+### Abstrakte Klassen und Interfaces
+Sollen Superklassen nur gemeinsame Eigenschaften von mehreren Subklassen bündeln, können abstrakte Klassen und Interfaces verwendet werden.  
+Abstrakte Methoden in abstrakten Klassen werden nur deklariert, aber nicht implementiert.  
+Abstrakte Klassen können aber auch implementierte Klassen enthalten.  
+Interfaces enthalten nur abstrakte Methoden.
+Abstrakte Klassen und Interfaces können nicht instanziiert werden, sondern nur von Subklassen erweitert und implementiert werden.
+Subklassen können mehrere Interfaces implementieren.
+
+### Abstrakte Klassen
+In UML werden abstrakte Klassen und Methoden kursiv geschrieben.  
+In Java wird das Schlüsselwort abstract verwendet:  
+
+    public abstract class AbstrakteSuperklasse{
+      public abstract String abstrakteMethode(){
+        return "Hallo";
+      }
+    }
+
+Sie werden wie gewohnt durch das Schlüsselwort extends von einer Subklasse erweitert.
