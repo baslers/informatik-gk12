@@ -393,3 +393,137 @@ Man kann die Farbe der Figur ändern und den Flächeninhalt der Figur berechnen.
 In dem Programm existieren Rechtecke, Dreiecke und Kreise.  
 
 Modelliere und implementiere das beschriebene Problem geeignet.
+
+### Generics
+Soll der Inhalt einer Klasse für verschiedene Datentypen funktionieren, können Java Generics verwendet werden:  
+
+    public class Tasche<T> {
+      private T inhalt;
+      public Tasche(T inhalt){
+        this.inhalt = inhalt;
+      }
+      public Tasche(){
+      };
+      public T getInhalt(){
+        return this.inhalt;
+      }
+      public void setInhalt(T inhalt){
+        this.inhalt = inhalt;
+      }
+    }
+    
+    public class App {
+      public static void main(String[] args) {
+        Tasche tasche = new Tasche<String>();
+        tasche.setInhalt("Hallo");
+        System.out.println(tasche.getInhalt());
+        Tasche zahlenTasche = new Tasche<Integer>(5);
+        System.out.println(zahlenTasche.getInhalt());
+      }
+    }
+### Datenstrukturen
+- Datenstrukturen dienen der Speicherung und Organisation von Daten
+- Für unterschiedliche Anwendungsfälle gibt es unterschiedliche Datenstrukturen:
+  + Datensätze (Tupel)
+  + Felder (Arrays)
+  + Verkettete Listen (Linked Lists)
+  + Stapelspeicher (Stack)
+  + Warteschlangen (Queues)
+  + (Binär-)Bäume
+  
+### Tupel
+Ein Tupel ist eine Wertesammlung fester Länger. Beispiel 2-Tupel:  
+
+    public class ZweiTupel<X, Y>{
+      X ersterWert;
+      Y zweiterWert;
+      public ZweiTupel(X erster, Y zweiter){
+        this.ersterWert = erster;
+        this.zweiterWert = zweiter;
+      }
+      public ZweiTupel(){
+      }
+      public X getErsterWert(){
+        return this.ersterWert;
+      }
+      public void setErsterWert(X erster){
+        this.ersterWert = erster;
+      }
+      public Y getZweiterWert(){
+        return this.zweiterWert;
+      }
+      public void setZweiterWert(Y zweiter){
+        this.zweiterWert = zweiter;
+      }
+    }
+    
+    public class App {
+      public static void main(String[] args) {
+        ZweiTupel tupel = new ZweiTupel<String, Integer>("Fuenf", 5);
+        System.out.println(tupel.getErsterWert());
+        System.out.println(tupel.getZweiterWert());
+      }
+    }
+
+### Aufgabe: 3-Tupel
+Implementiere eine Datenstruktur DreiTupel, die drei Werte speichert.
+
+### Einfach verkettete Liste
+Eine einfach verkettete Liste enthält ein Element und einen Verweis zu einer einfach verketteten Liste oder null.  
+
+<img src=".\Abbildungen\EinfacheListe.png" style="max-width:50%">
+
+### Einfach verkettete Liste
+
+    public class EinfacheListe<T>{
+      T inhalt;
+      EinfacheListe<T> tail;
+      public EinfacheListe(T inhalt, EinfacheListe<T> tail){
+        this.inhalt = inhalt;
+        this.tail = tail;
+      }
+      public EinfacheListe(){
+      }
+      public T getInhalt(){
+        return this.inhalt;
+      }
+      public void setInhalt(T inhalt){
+        this.inhalt = inhalt;
+      }
+      public EinfacheListe<T> getTail(){
+        return this.tail;
+      }
+      public void setTail(EinfacheListe<T> tail){
+        this.tail = tail;
+      }
+      public void add(T neuesElement){
+        if(this.tail==null){
+          this.tail = new EinfacheListe<T>(neuesElement, null);
+        }else{
+          this.tail.add(neuesElement);
+        }
+      } 
+    }
+    
+### EinfacheListe testen
+
+    public class App {
+      public static void main(String[] args) {
+        EinfacheListe<Integer> liste = new EinfacheListe<Integer>(0, null);
+        liste.add(2);
+        liste.add(4);
+        liste.add(6);
+        liste.add(8);
+        while(liste!=null){
+          System.out.println(liste.getInhalt());
+          liste = liste.getTail();
+        }
+      }
+    }
+
+### Aufgabe: Zweifach verkettete Liste
+Implementiere eine zweifach verkettete Liste.  
+Eine zweifach verkettete Liste enthält als Inhalt ein Element sowie die Verknüpfung an den vorderen Teil und den hinteren Teil der Liste.  
+Der vordere Teil und der hintere Teil sind jeweils selbst Listen oder null.  
+
+<img src=".\Abbildungen\ZweifacheListe.png" style="max-width:50%">
