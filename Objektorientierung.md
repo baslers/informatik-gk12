@@ -527,3 +527,40 @@ Eine zweifach verkettete Liste enthält als Inhalt ein Element sowie die Verknü
 Der vordere Teil und der hintere Teil sind jeweils selbst Listen oder null.  
 
 <img src=".\Abbildungen\ZweifacheListe.png" style="max-width:50%">
+
+### LIFO und FIFO
+Last In - First Out (LIFO) und First In - First Out (FIFO) sind Prinzipien, nach denen z.B. Aufgaben abgearbeitet werden.  
+Beispiel LIFO: Tests werden von den Schülern auf einen Stapel gelegt, der Lehrer fängt oben an, die Tests zu kontrollieren.  
+Beispiel FIFO: In einer Arztpraxis wird der Patient zuerst behandelt, der zuerst kam.
+
+### Stapelspeicher (Stack)
+Ein Stack ist eine Liste, die nach dem LIFO-Prinzip arbeitet, d.h. nur das letzte (oberste) Element des Stapels kann betrachtet werden.  
+Ein Stack hat die Methoden:  
+- push(element), um ein Element auf den Stapel zu legen
+- pop(), um das oberste Element des Stapels zu erhalten und aus dem Stapel zu löschen
+- peek(), um das oberste Element des Stapels zu erhalten, ohne es zu löschen
+
+### Stack implementieren
+Ein Stack enthält nur ein Listenelement "top" (das oberste Element des Stapels) als Attribut.  
+Das Listenelement hat eine eigene Klasse.  
+Ein solches Listenelement enhält ein Attribut (den eigentlichen Inhalt) und einen Verweis auf das nächste Listenelement im Stapel.  
+
+### Die Methode push(element)
+- push(element) legt ein neues Element auf den Stapel  
+- Dazu muss ein neues Listenelement instanziiert werden
+- Das neue Listenelement erhält als Inhalt den übergebenen Wert "element"
+- Das neue Listenelement verweist auf das alte top-Element
+- Das neue Listenelement wird als neues top-Element gespeichert
+
+### Die Methode pop()
+- pop() gibt das oberste Element des Stapels zurück und löscht es aus dem Stapel
+- Dazu muss überprüft werden, ob das top-Element null ist
+- Ist top null, wird null zurückgegeben
+- Ist top nicht null, wird der Inhalt von top zurückgegeben
+- Anschließend wird der Verweis vom top-Element auf das nächste Listenelement als top-Element gespeichert
+
+### Die Methode peek()
+- peek() gibt das oberste Element des Stapels zurück, ohne es zu löschen
+- Dazu muss überprüft werden, ob das top-Element null ist
+- Ist top null, wird null zurückgegeben
+- Ist top nicht null, wird der Inhalt von top zurückgegeben
