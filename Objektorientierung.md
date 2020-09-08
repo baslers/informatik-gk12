@@ -536,6 +536,7 @@ Beispiel FIFO: In einer Arztpraxis wird der Patient zuerst behandelt, der zuerst
 ### Stapelspeicher (Stack)
 Ein Stack ist eine Liste, die nach dem LIFO-Prinzip arbeitet, d.h. nur das letzte (oberste) Element des Stapels kann betrachtet werden.  
 Ein Stack hat die Methoden:  
+
 - push(element), um ein Element auf den Stapel zu legen
 - pop(), um das oberste Element des Stapels zu erhalten und aus dem Stapel zu löschen
 - peek(), um das oberste Element des Stapels zu erhalten, ohne es zu löschen
