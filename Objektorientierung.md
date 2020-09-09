@@ -544,7 +544,7 @@ Ein Stack hat die Methoden:
 ### Stack implementieren
 Ein Stack enthält nur ein Listenelement "top" (das oberste Element des Stapels) als Attribut.  
 Das Listenelement hat eine eigene Klasse.  
-Ein solches Listenelement enhält ein Attribut (den eigentlichen Inhalt) und einen Verweis auf das nächste Listenelement im Stapel.  
+Ein solches Listenelement enthält ein Attribut (den eigentlichen Inhalt) und einen Verweis auf das nächste Listenelement im Stapel.  
 
 ### Die Methode push(element)
 - push(element) legt ein neues Element auf den Stapel  
