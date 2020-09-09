@@ -936,6 +936,43 @@ Ein solches Listenelement enthält ein Attribut (den eigentlichen Inhalt) und ei
 <li>Ist top nicht null, wird der Inhalt von top zurückgegeben</li>
 </ul>
 </section>
+<section id="warteschlangen-queues" class="slide level3">
+<h3>Warteschlangen (Queues)</h3>
+<p>Eine Queue ist eine Liste, die nach dem FIFO-Prinzip arbeitet, d.h. nur das erste Element der Schlange ist sichtbar und ein neues Element wird hinten eingereiht.<br />
+Eine Queue hat die Methoden:</p>
+<ul>
+<li>enqueue(element), um ein neues Element in die Schlange einzureihen</li>
+<li>dequeue(), um das erste Element aus der Schlange anzusehen und zu entnehmen</li>
+<li>peek(), um das erste ELement aus der Schlange anzusehen, ohne es zu entnehmen</li>
+</ul>
+</section>
+<section id="queue-implementieren" class="slide level3">
+<h3>Queue implementieren</h3>
+<p>Eine Queue enthält nur ein Listenelement “first” als Attribut (das erste Element der Warteschlange).<br />
+Das Listenelement hat eine eigene Klasse.<br />
+Ein solches Listenelement enthält ein Attribut “inhalt” (den eigentlichen Inhalt des Elements) und einen Verweis “next” auf das nächste Listenelement der Warteschlange sowie eine Methode einfuegen(element), die ein Element am Ende der Warteschlange einreiht.</p>
+</section>
+<section id="die-methode-enqueueelement" class="slide level3">
+<h3>Die Methode enqueue(element)</h3>
+<ul>
+<li>Ist die Warteschlange leer, wird ein neues Listenelement mit dem übergebenen Element erstellt und als erstes Listenelement gespeichert</li>
+<li>Ist sie nicht leer, wird die Methode einfuegen am ersten Listenelement aufgerufen</li>
+</ul>
+</section>
+<section id="die-methode-dequeue" class="slide level3">
+<h3>Die Methode dequeue()</h3>
+<ul>
+<li>Ist das erste Listenelement null, wird null zurückgegeben</li>
+<li>Ist das erste Listenelement nicht null, wird der Inhalt des ersten Listenelements zurückgegeben und sein Nachfolger als neues erstes Listenelement gespeichert</li>
+</ul>
+</section>
+<section id="die-methode-peek-1" class="slide level3">
+<h3>Die Methode peek()</h3>
+<ul>
+<li>Ist das erste Listenelement null, wird null zurückgegeben</li>
+<li>Ist das erste Listenelement nicht null, wird der Inhalt des ersten Listenelements zurückgegeben</li>
+</ul>
+</section>
     </div>
   </div>
 

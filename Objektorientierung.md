@@ -565,3 +565,28 @@ Ein solches Listenelement enthält ein Attribut (den eigentlichen Inhalt) und ei
 - Dazu muss überprüft werden, ob das top-Element null ist
 - Ist top null, wird null zurückgegeben
 - Ist top nicht null, wird der Inhalt von top zurückgegeben
+
+### Warteschlangen (Queues)
+Eine Queue ist eine Liste, die nach dem FIFO-Prinzip arbeitet, d.h. nur das erste Element der Schlange ist sichtbar und ein neues Element wird hinten eingereiht.  
+Eine Queue hat die Methoden:  
+
+- enqueue(element), um ein neues Element in die Schlange einzureihen
+- dequeue(), um das erste Element aus der Schlange anzusehen und zu entnehmen
+- peek(), um das erste ELement aus der Schlange anzusehen, ohne es zu entnehmen
+
+### Queue implementieren
+Eine Queue enthält nur ein Listenelement "first" als Attribut (das erste Element der Warteschlange).  
+Das Listenelement hat eine eigene Klasse.  
+Ein solches Listenelement enthält ein Attribut "inhalt" (den eigentlichen Inhalt des Elements) und einen Verweis "next" auf das nächste Listenelement der Warteschlange sowie eine Methode einfuegen(element), die ein Element am Ende der Warteschlange einreiht.
+
+### Die Methode enqueue(element)
+- Ist die Warteschlange leer, wird ein neues Listenelement mit dem übergebenen Element erstellt und als erstes Listenelement gespeichert
+- Ist sie nicht leer, wird die Methode einfuegen am ersten Listenelement aufgerufen
+
+### Die Methode dequeue()
+- Ist das erste Listenelement null, wird null zurückgegeben
+- Ist das erste Listenelement nicht null, wird der Inhalt des ersten Listenelements zurückgegeben und sein Nachfolger als neues erstes Listenelement gespeichert
+
+### Die Methode peek()
+- Ist das erste Listenelement null, wird null zurückgegeben
+- Ist das erste Listenelement nicht null, wird der Inhalt des ersten Listenelements zurückgegeben
